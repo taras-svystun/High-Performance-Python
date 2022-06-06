@@ -12,6 +12,6 @@ def random_function(param):
     return param ** 2
 
 class TestCase(unittest.TestCase):
-    def test(seld):
+    def test(self):
         result = random_function(5)
         self.assertEquals(result, 25)

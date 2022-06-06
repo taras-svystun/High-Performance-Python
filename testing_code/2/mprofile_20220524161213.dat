@@ -1,4 +1,0 @@
-FUNC __main__.random_function 42.8438 1653397933.4238 44.7969 1653397933.4293 0
-CMDLINE /Users/taras-svystun/.pyenv/versions/3.9.5/bin/python memory_profiler_example.py
-MEM 1.312500 1653397933.2696
-MEM 31.390625 1653397933.3748

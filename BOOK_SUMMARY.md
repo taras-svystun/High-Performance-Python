@@ -57,6 +57,8 @@ Tuples are very lightweight. After deleting the tuple, Python’s garbage collec
 
 # Dictionaries and Sets
 
+
+
 # Iterators and Generators
 
 # Matrix and Vector Computation

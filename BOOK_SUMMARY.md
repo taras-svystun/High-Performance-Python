@@ -57,7 +57,19 @@ Tuples are very lightweight. After deleting the tuple, Python’s garbage collec
 
 # Dictionaries and Sets
 
+Dicts and sets work fast if their hash function is fast. With O(1) hash functions can find element in dict with O(1) time complexity. But the slow hash function leads to slow indexing of the dict.
+Set is a goof way to store something, avoiding duplicates.
 
+Sets intensively use hash function to assign unique index to each element. Hash uses mask, which is default 8 (0b111).
+Resizing is done by increasing the size of the memory 4x till 50000 elements and then by 2x. Same objects have different hashes, because of different memory adress. 
+
+Good hash function mainimizes the number of collision. A hash function which minimizes entropy is ideal. 
+
+If some value is needed, Python will firstly search in locals(), then globals(), then __builtins__.
+Local space is the fastest, because the lookups are stored in very slim array.
+
+
+Also, it could be convenient to import some global function into local namespace. One outer import would be slow, but then all subsequent calls would be from local namespace = fast. 
 
 # Iterators and Generators
 

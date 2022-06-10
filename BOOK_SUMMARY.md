@@ -73,6 +73,10 @@ Also, it could be convenient to import some global function into local namespace
 
 # Iterators and Generators
 
+Iterators and generators help use less memory, since they store only one element at a time. So instead of loading the array and iterating over it, just get element by element without loading full array into memory.
+
+The authors provide an example on how to read huge dataset without loading it fully in memory. Then they calculate running mean and variance and perform annomaly detection.
+
 # Matrix and Vector Computation
 
 # Compiling to C

@@ -79,6 +79,14 @@ The authors provide an example on how to read huge dataset without loading it fu
 
 # Matrix and Vector Computation
 
+Lists are usefull to some kind of tasks, including vector-matrix multiplication. But there is a lot of space for improvements. The authors describe heat equation.
+
+First problem is allocating too much.
+
+Second one is about lists themselves. When calling a list of lists (representing matrix) it takes time to find i-th list and then j-th element in it (in other words, find matrix[i][j]). When iterating over the matrix, it m*n takes time to find the same matrix in memory. It is worth to find it once and do the calculations.
+
+
+
 # Compiling to C
 
 # Concurrency

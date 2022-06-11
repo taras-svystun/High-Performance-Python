@@ -89,6 +89,12 @@ Second one is about lists themselves. When calling a list of lists (representing
 
 # Compiling to C
 
+There are 2 types of compilers: JIT (just in time, e.g. Numba, PyPy) and AOT (Cython, Shed Skin, Pythran). JIT shows impresive results, but AOT works even more faster on practics.
+
+The first update is static typing, because Python uses high-level objects to wrap mathematical types (int, float). For some function it is a slowdown.
+
+
+
 # Concurrency
 
 # The multiprocessing Module

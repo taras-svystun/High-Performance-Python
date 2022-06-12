@@ -93,6 +93,9 @@ There are 2 types of compilers: JIT (just in time, e.g. Numba, PyPy) and AOT (Cy
 
 The first update is static typing, because Python uses high-level objects to wrap mathematical types (int, float). For some function it is a slowdown.
 After using Cython and just compiling the code to c, there is a 20% speedup. Can use "cython -a time_test.pyx" command to find the most expensive lines. Type annotations only show results for clean c code, in Python lines it wouldn't help. Also there is an option to disable bounds checking for each reference to the list.
+It could also be handy to 'reserve' some space for the output variable: cdef int[:] output = np.empty(len(smth), dtype=np.int32)
+
+Numba. It works similarly to cython, but with less effort (usually just 1-2 additional lines to original code).
 
 
 # Concurrency

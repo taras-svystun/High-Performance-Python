@@ -2,5 +2,6 @@ from setuptools import setup
 from Cython.Build import cythonize
 
 setup(
-    ext_modules = cythonize("fib.pyx", language_level = "3")
+    name='time_testing',
+    ext_modules = cythonize("time_test.pyx")
 )

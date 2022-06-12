@@ -92,7 +92,7 @@ Second one is about lists themselves. When calling a list of lists (representing
 There are 2 types of compilers: JIT (just in time, e.g. Numba, PyPy) and AOT (Cython, Shed Skin, Pythran). JIT shows impresive results, but AOT works even more faster on practics.
 
 The first update is static typing, because Python uses high-level objects to wrap mathematical types (int, float). For some function it is a slowdown.
-
+After using Cython and just compiling the code to c, there is a 20% speedup. Can use "cython -a time_test.pyx" command to find the most expensive lines. Type annotations only show results for clean c code, in Python lines it wouldn't help. Also there is an option to disable bounds checking for each reference to the list.
 
 
 # Concurrency

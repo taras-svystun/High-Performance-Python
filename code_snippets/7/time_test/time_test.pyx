@@ -7,16 +7,15 @@
 from time import time
 
 def test(int times):
-    cdef double start = time()
-    cdef int counter = 0
-    cdef int i;
+    start = time()
+    cdef int counter = 0, i;
     for i in range(times):
-        if i % 2 == 0:
+        if i % 2:
             counter += i
         else:
             counter -= i
     print(time() - start)
-    print(counter)
+    return counter
 
 if __name__ == '__main__':
     test(10**8)

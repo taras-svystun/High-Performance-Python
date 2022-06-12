@@ -1286,8 +1286,8 @@ static PyObject *__pyx_codeobj__2;
  * from time import time
  * 
  * def test(int times):             # <<<<<<<<<<<<<<
- *     cdef double start = time()
- *     cdef int counter = 0
+ *     start = time()
+ *     cdef int counter = 0, i;
  */
 
 /* Python wrapper */
@@ -1318,7 +1318,7 @@ static PyObject *__pyx_pw_9time_test_1test(PyObject *__pyx_self, PyObject *__pyx
 }
 
 static PyObject *__pyx_pf_9time_test_test(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_times) {
-  double __pyx_v_start;
+  PyObject *__pyx_v_start = NULL;
   int __pyx_v_counter;
   int __pyx_v_i;
   PyObject *__pyx_r = NULL;
@@ -1326,11 +1326,10 @@ static PyObject *__pyx_pf_9time_test_test(CYTHON_UNUSED PyObject *__pyx_self, in
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
-  double __pyx_t_4;
+  int __pyx_t_4;
   int __pyx_t_5;
   int __pyx_t_6;
   int __pyx_t_7;
-  int __pyx_t_8;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -1339,9 +1338,9 @@ static PyObject *__pyx_pf_9time_test_test(CYTHON_UNUSED PyObject *__pyx_self, in
   /* "time_test.pyx":10
  * 
  * def test(int times):
- *     cdef double start = time()             # <<<<<<<<<<<<<<
- *     cdef int counter = 0
- *     cdef int i;
+ *     start = time()             # <<<<<<<<<<<<<<
+ *     cdef int counter = 0, i;
+ *     for i in range(times):
  */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -1360,66 +1359,65 @@ static PyObject *__pyx_pf_9time_test_test(CYTHON_UNUSED PyObject *__pyx_self, in
   if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_v_start = __pyx_t_4;
+  __pyx_v_start = __pyx_t_1;
+  __pyx_t_1 = 0;
 
   /* "time_test.pyx":11
  * def test(int times):
- *     cdef double start = time()
- *     cdef int counter = 0             # <<<<<<<<<<<<<<
- *     cdef int i;
+ *     start = time()
+ *     cdef int counter = 0, i;             # <<<<<<<<<<<<<<
  *     for i in range(times):
+ *         if i % 2:
  */
   __pyx_v_counter = 0;
 
-  /* "time_test.pyx":13
- *     cdef int counter = 0
- *     cdef int i;
+  /* "time_test.pyx":12
+ *     start = time()
+ *     cdef int counter = 0, i;
  *     for i in range(times):             # <<<<<<<<<<<<<<
- *         if i % 2 == 0:
+ *         if i % 2:
  *             counter += i
  */
-  __pyx_t_5 = __pyx_v_times;
-  __pyx_t_6 = __pyx_t_5;
-  for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
-    __pyx_v_i = __pyx_t_7;
+  __pyx_t_4 = __pyx_v_times;
+  __pyx_t_5 = __pyx_t_4;
+  for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
+    __pyx_v_i = __pyx_t_6;
 
-    /* "time_test.pyx":14
- *     cdef int i;
+    /* "time_test.pyx":13
+ *     cdef int counter = 0, i;
  *     for i in range(times):
- *         if i % 2 == 0:             # <<<<<<<<<<<<<<
+ *         if i % 2:             # <<<<<<<<<<<<<<
  *             counter += i
  *         else:
  */
-    __pyx_t_8 = ((__Pyx_mod_long(__pyx_v_i, 2) == 0) != 0);
-    if (__pyx_t_8) {
+    __pyx_t_7 = (__Pyx_mod_long(__pyx_v_i, 2) != 0);
+    if (__pyx_t_7) {
 
-      /* "time_test.pyx":15
+      /* "time_test.pyx":14
  *     for i in range(times):
- *         if i % 2 == 0:
+ *         if i % 2:
  *             counter += i             # <<<<<<<<<<<<<<
  *         else:
  *             counter -= i
  */
       __pyx_v_counter = (__pyx_v_counter + __pyx_v_i);
 
-      /* "time_test.pyx":14
- *     cdef int i;
+      /* "time_test.pyx":13
+ *     cdef int counter = 0, i;
  *     for i in range(times):
- *         if i % 2 == 0:             # <<<<<<<<<<<<<<
+ *         if i % 2:             # <<<<<<<<<<<<<<
  *             counter += i
  *         else:
  */
       goto __pyx_L5;
     }
 
-    /* "time_test.pyx":17
+    /* "time_test.pyx":16
  *             counter += i
  *         else:
  *             counter -= i             # <<<<<<<<<<<<<<
  *     print(time() - start)
- *     print(counter)
+ *     return counter
  */
     /*else*/ {
       __pyx_v_counter = (__pyx_v_counter - __pyx_v_i);
@@ -1427,14 +1425,14 @@ static PyObject *__pyx_pf_9time_test_test(CYTHON_UNUSED PyObject *__pyx_self, in
     __pyx_L5:;
   }
 
-  /* "time_test.pyx":18
+  /* "time_test.pyx":17
  *         else:
  *             counter -= i
  *     print(time() - start)             # <<<<<<<<<<<<<<
- *     print(counter)
+ *     return counter
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -1448,41 +1446,38 @@ static PyObject *__pyx_pf_9time_test_test(CYTHON_UNUSED PyObject *__pyx_self, in
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_start); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Subtract(__pyx_t_1, __pyx_v_start); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyNumber_Subtract(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__Pyx_PrintOne(0, __pyx_t_2) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_PrintOne(0, __pyx_t_3) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "time_test.pyx":19
+  /* "time_test.pyx":18
  *             counter -= i
  *     print(time() - start)
- *     print(counter)             # <<<<<<<<<<<<<<
+ *     return counter             # <<<<<<<<<<<<<<
  * 
  * if __name__ == '__main__':
  */
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_counter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 19, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_PrintOne(0, __pyx_t_3) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_counter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
 
   /* "time_test.pyx":9
  * from time import time
  * 
  * def test(int times):             # <<<<<<<<<<<<<<
- *     cdef double start = time()
- *     cdef int counter = 0
+ *     start = time()
+ *     cdef int counter = 0, i;
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
@@ -1490,6 +1485,7 @@ static PyObject *__pyx_pf_9time_test_test(CYTHON_UNUSED PyObject *__pyx_self, in
   __Pyx_AddTraceback("time_test.test", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_start);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -1561,7 +1557,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 12, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -1575,20 +1571,20 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * from time import time
  * 
  * def test(int times):             # <<<<<<<<<<<<<<
- *     cdef double start = time()
- *     cdef int counter = 0
+ *     start = time()
+ *     cdef int counter = 0, i;
  */
   __pyx_tuple_ = PyTuple_Pack(5, __pyx_n_s_times, __pyx_n_s_times, __pyx_n_s_start, __pyx_n_s_counter, __pyx_n_s_i); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
   __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_time_test_pyx, __pyx_n_s_test, 9, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 9, __pyx_L1_error)
 
-  /* "time_test.pyx":22
+  /* "time_test.pyx":21
  * 
  * if __name__ == '__main__':
  *     test(10**8)             # <<<<<<<<<<<<<<
  */
-  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_int_100000000); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_int_100000000); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
   __Pyx_RefNannyFinishContext();
@@ -1897,40 +1893,40 @@ if (!__Pyx_RefNanny) {
  * from time import time
  * 
  * def test(int times):             # <<<<<<<<<<<<<<
- *     cdef double start = time()
- *     cdef int counter = 0
+ *     start = time()
+ *     cdef int counter = 0, i;
  */
   __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_9time_test_1test, NULL, __pyx_n_s_time_test); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "time_test.pyx":21
- *     print(counter)
+  /* "time_test.pyx":20
+ *     return counter
  * 
  * if __name__ == '__main__':             # <<<<<<<<<<<<<<
  *     test(10**8)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_2, __pyx_n_s_main, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_2, __pyx_n_s_main, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "time_test.pyx":22
+    /* "time_test.pyx":21
  * 
  * if __name__ == '__main__':
  *     test(10**8)             # <<<<<<<<<<<<<<
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_test); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_test); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "time_test.pyx":21
- *     print(counter)
+    /* "time_test.pyx":20
+ *     return counter
  * 
  * if __name__ == '__main__':             # <<<<<<<<<<<<<<
  *     test(10**8)

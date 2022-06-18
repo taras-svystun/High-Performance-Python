@@ -97,6 +97,14 @@ It could also be handy to 'reserve' some space for the output variable: cdef int
 
 Numba. It works similarly to cython, but with less effort (usually just 1-2 additional lines to original code).
 
+One more booster is PyPy - another implementation of Python, using JIT compiler. Usually runs much faster than Python.
+
+Here are some other promising upcoming projects. Theano, PyViennaCL, Pyston.
+
+Also it is possible to write almost c-code, but on Python, using ctypes module. cffi is so-called "c parser". f2py is mixture of Python and Fortran.
+
+In a word, according to Caleb Hattingh: "Use Cython sparingly. It adds complexity and it's longer. Use 90/10 rule: find 10% of your code that is taking 90% of the time."
+
 
 # Concurrency
 

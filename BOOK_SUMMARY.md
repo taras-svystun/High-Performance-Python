@@ -105,8 +105,18 @@ Also it is possible to write almost c-code, but on Python, using ctypes module. 
 
 In a word, according to Caleb Hattingh: "Use Cython sparingly. It adds complexity and it's longer. Use 90/10 rule: find 10% of your code that is taking 90% of the time."
 
-
 # Concurrency
+
+Firstly, the difference between concurrency and multiprocessing is the following: concurrency uses one core and run a program, when I/O waiting for another; parallelism literally runs tasks at the same time.
+
+In this chapters authors described the idea behund asynchronous programming, provided some examples:
+1. Serial Crawler
+2. gevent
+3. tornado
+4. AsychIO
+5. Database example
+
+Actually, I skipped this chapter, but I found this lecture useful: https://www.youtube.com/watch?v=18B1pznaU1o
 
 # The multiprocessing Module
 

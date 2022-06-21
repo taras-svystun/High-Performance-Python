@@ -131,6 +131,15 @@ And of course numpy implementation showed the most shocking result: 150x speedup
 
 Finding prime numbers. Using multiprocessing Pool can do 2x speedup. Also can play with chunk_size parameter. It slows the program when tiny or huge and shows the best results when ~ 1,000 - 10,000.
 
+Verifying primes. This section has several approaches:1. Serial
+2. Naive Pool
+3. Less Naive Pool
+4. via Manager.Value (check once in 1,000 iter if other processes found the factor)
+5. Redis as a flag (redis stores key/value in memory engine)
+6. via multiprocessing.RawValue
+7. via mmap as a flag
+8. via mmap as a flag redux
+
 # Clusters and Job Queues
 
 # Using Less RAM

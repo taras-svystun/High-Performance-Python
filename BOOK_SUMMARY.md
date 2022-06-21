@@ -120,6 +120,17 @@ Actually, I skipped this chapter, but I found this lecture useful: https://www.y
 
 # The multiprocessing Module
 
+Parallelization is a way to deal with GIL, i.e. the ability to use the advantage of multicore computers. For some issues it applies perfectly, for some it could even slowdown the program.
+
+Estimating pi with the Monte Carlo method. Each process takes some overhead to start python interpreter. THis explains why "more workers --> faster" doesn't work. I tested provided examples on my machine and plotted the graph of time dependency on the number of workers. As my cimputer has 8 physical cores - the best results were for n_workers=8. Hyperthreading (9-16 processors) are poor addition, but if the tasks are different, e.g. working with int's and float's, it can show up to 30% speedup. By authors' recommandation I also watched the talk from David Beazley "Understanding the Python GIL". He covered:
+1. Funny problems with GIL
+2. OS scheduler and condition variable work
+3. Shit happens with 2+ CPUs due to a LOT of false system calls and messy threading and context-switching.
+4. Python is limited by GIL, threads won't provide any performance gain.
+And of course numpy implementation showed the most shocking result: 150x speedup (from 3 secs to 0.02). But using more than 1 CPU damages the performance of numpyis cases of processes which can't be parallelized.
+
+Finding prime numbers. Using multiprocessing Pool can do 2x speedup. Also can play with chunk_size parameter. It slows the program when tiny or huge and shows the best results when ~ 1,000 - 10,000.
+
 # Clusters and Job Queues
 
 # Using Less RAM

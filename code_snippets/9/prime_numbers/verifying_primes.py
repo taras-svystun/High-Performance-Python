@@ -38,7 +38,6 @@ def prime_naive_pool(number: int, pool, n_workers: int = 8):
     ranges_to_check = [(array[0], array[-1]) for array in 
     np.array_split(list(range(start, end)), n_workers)]
     ranges_to_check = zip([number] * n_workers, ranges_to_check)
-    print(list(ranges_to_check))
     result = pool.map(prime_in_range, ranges_to_check)
     if False in result:
         return False

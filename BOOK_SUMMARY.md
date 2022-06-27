@@ -140,7 +140,13 @@ Verifying primes. This section has several approaches:1. Serial
 7. via mmap as a flag
 8. via mmap as a flag redux
 
+Then I skipped the remaining part.
+
 # Clusters and Job Queues
+
+Cluster is a collection of computers working together to solve a particular task.
+
+Use clustering **only** when needed, since it can bring a lot of debugging pain.
 
 # Using Less RAM
 

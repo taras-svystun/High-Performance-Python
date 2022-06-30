@@ -148,6 +148,20 @@ Cluster is a collection of computers working together to solve a particular task
 
 Use clustering **only** when needed, since it can bring a lot of debugging pain.
 
+Benefits:
+* scale computational power;
+* increase reliability; with good cluster design failures on several machines would not affect the job on others.
+* geographic separation.
+
+Drawbacks:
+* change in thinking; the authors recommend to scale the vertically and only after everything possible made, try combining several computers.
+* different configuration on each machine;
+* clustering can really slow down the development speed and you may need additional system engineer to handle all that stuff.
+
+Then authors told about two real-world situations: $462 million wall street crash due to poor cluster update; skype crashed in approximately 40% of live clients.
+
+
+
 # Using Less RAM
 
 # Lessons from the Field

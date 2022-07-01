@@ -160,7 +160,14 @@ Drawbacks:
 
 Then authors told about two real-world situations: $462 million wall street crash due to poor cluster update; skype crashed in approximately 40% of live clients.
 
+Recommendation to avoid pain when clustering:
 
+* Sketch some ideas of what can go wrong and how are you going to handle it.
+* add readable JSON file wjen passing messages.
+* be sure it's relatively easy to provide system updates.
+* make a habbit of daily possitive reporting.
+
+Then authors described 3 possible approaches for clustering, namely: python parallel module (pp), IPython parallel, NSQ.
 
 # Using Less RAM
 

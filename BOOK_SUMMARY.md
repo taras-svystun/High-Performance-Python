@@ -45,8 +45,14 @@ Use line_profiler, memory_profilers etc.
 8. Also use memory_profiler with psutil. %memit command
 9. from guppy import hpy; hp = hpy(); … h = hp.heap(); print(heap)
 
+%load_ext memory_profiler
+%memit [0] * 10**8
+
 # Lists and Tuples
 
+Arrays are stored as continuous sequence of buckets in memory.
+Linear search is O(n). Binary search is O(logn).
+Lists are dynamic (can change its elements, delete, append), mutable and allow resizing.
 Arrays are stored as continuous sequence of buckets in memory.
 Linear search is O(n). Binary search is O(logn).
 Lists are dynamic (can change its elements, delete, append), mutable and allow resizing.
@@ -167,8 +173,8 @@ Recommendation to avoid pain when clustering:
 * be sure it's relatively easy to provide system updates.
 * make a habbit of daily possitive reporting.
 
-Then authors described 3 possible approaches for clustering, namely: python parallel module (pp), IPython parallel, NSQ.
-
 # Using Less RAM
+
+Data has mass -> larger data moves slower. If store $10^8$ of the same element in the list, it takes approximately 800 Mb, but storing $10^8$ of different object costs us gigabytes of RAM.
 
 # Lessons from the Field

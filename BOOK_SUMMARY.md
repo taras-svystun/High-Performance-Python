@@ -177,4 +177,8 @@ Recommendation to avoid pain when clustering:
 
 Data has mass -> larger data moves slower. If store $10^8$ of the same element in the list, it takes approximately 800 Mb, but storing $10^8$ of different object costs us gigabytes of RAM.
 
+Also you should be carefull with getsizeof() with containers, because it's not usually trivial how they work. Can try better opportunity asizeof.py.
+
+
+
 # Lessons from the Field

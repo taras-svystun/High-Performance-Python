@@ -21,6 +21,7 @@ These have real physical sense.
 A lot of people claims python can’t deal with performance problems. That’s untrue, because what python may lack in performance, it gets righ back in developing speed.
 Analysis of idealized computing versus python virtual machine. Not always time complexity is the issue. The program might work slower because of additional computations.
 Main frawbacks of python are:
+
 1. Python objects do not lay in the most optimal way in memory, since garbage-collector is working.
 2. Python is dynamically typed and isn’t compiled.
 3. GIL makes python to run on a single core.
@@ -179,6 +180,22 @@ Data has mass -> larger data moves slower. If store $10^8$ of the same element i
 
 Also you should be carefull with getsizeof() with containers, because it's not usually trivial how they work. Can try better opportunity asizeof.py.
 
+In the following section, I'll list recommended data srtuctures to work with lots of strings.
 
+* DAWG - directed acyclic word graph;
+* Marisa trie;
+* Datrie;
+* HAT trie;
+
+Then the authors provided full description of probabilistic approaches on approximating counting:
+
+*Morris counter;
+* K-min values;
+* Bloom filters;
+* LogLog counters;
 
 # Lessons from the Field
+
+This brilliant last chapter tells real-world examples of fast and high performant Python!
+
+Micha Gorelick & Ian Ozsvald thank you!
